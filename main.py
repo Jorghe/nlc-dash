@@ -8,10 +8,16 @@ import pandas as pd
 
 app = Flask(__name__)
 
+routes = {
+    'huaste': 'https://nl-climbing.deta.dev/api/huaste/',
+    'salto': 'https://nl-climbing.deta.dev/api/salto/',
+    'epc': 'https://nl-climbing.deta.dev/api/epc/'
+}
 
 @app.route('/')
 def index():
-    return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
+    api_huaste = pd.read_json(routes['huaste'])
+    return api_huaste.to_html()
 
 
 if __name__ == '__main__':
