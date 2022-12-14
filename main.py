@@ -4,6 +4,7 @@ from dash import html, dcc
 from dash.dependencies import Input, Output
 import plotly.express as px
 import pandas as pd
+import requests
 
 
 app = Flask(__name__)
@@ -16,7 +17,8 @@ routes = {
 
 @app.route('/')
 def index():
-    api_huaste = pd.read_json(routes['huaste'])
+    req_huaste = requests.get(routes['huaste'])
+    api_huaste = pd.read_json(req_huaste.json())
     return api_huaste.to_html()
 
 
