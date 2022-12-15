@@ -30,14 +30,14 @@ app.layout = html.Div(children=[
 
 ])
 
-@server.route("/dash")
+@server.route("/dash/")
 def my_dash_app():
     # req_huaste = requests.get(routes['huaste'])
     # api_huaste = pd.read_json(req_huaste.json())
     # js = api_huaste.to_json()
 
     return app.index()
-    
+
 @app.callback(
     Output('graph-huaste', 'figure'),
     Input('search-bar', 'value')
