@@ -8,7 +8,7 @@ import requests
 
 # Initialize app and Blueprint to load templates and static folder
 app = Flask(__name__)
-index_blueprint = Blueprint(__name__, template_folder='templates', static_folder='static')
+index_blueprint = Blueprint('index',__name__, template_folder='templates', static_folder='static')
 
 @app.route('/')
 def index():
