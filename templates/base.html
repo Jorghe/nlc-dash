@@ -18,28 +18,10 @@
     </head>
     <body>
         <header><h1>Escalada en Nuevo León</h1></header>
-<!--         <nav class="navbar">
-            <ul>
-                {% for zona in zonas %}
-                <li value="{{zona}}"> {{zona}} </li>
-                {% endfor %}
-            </ul>
-        </nav> -->
         <main id="main-content">
         <h2>Explora las zonas de escalada</h2>
         <div class="card">
             <p>El cañón de <a href="/huaste">La Huasteca</a> ubicado en Santa Catarina</p>
-            
-            
-            <!-- <form id="huaste" action="/huaste">
-            <label for="rutas">Grado</label>
-            <select name="rutas" id="rutas">
-                {% for grado in grados %}
-                <option value="{{grado}}"> {{grado}} </option>
-                {% endfor %}
-            </select>
-            <input type="submit"/>
-            </form> -->
             <div class="grid">
                 <div>
                     <h4>Por zona</h4>
@@ -54,55 +36,11 @@
                 <div>
                     <h4>Por Grado</h4>
                     <form id="huaste" action="/app">
-                        {% for grado in c_grados %}
-                        <input type="checkbox" name="grado" id="{{grado}}" value="{{grado}}">
-                        <label for="{{grado}}">5.{{grado}} </label>
-                        {% endfor %}
+                        <label>Busca una ruta</label>
                         <input type="submit"/>
                     </form>
                       
                 </div>
-            </div>
-        </div>
-        <div class="card" >
-            <p>El <a href="/epc">Potrero Chico</a> en Hidalgo.</p>
-            <table>
-                <tr>
-                {% for z in c_grados %}
-                    <th>{{z}}</th>
-                {% endfor %}
-                </tr>
-                <tr>
-                {% for z in c_grados %}
-                
-                    <td>100 - {{z}}</td>
-                
-                {% endfor %}
-                </tr>
-            </table>
-            <span>por zona</span>
-            <span>por grado</span>
-        </div>
-        <div class="card">
-            <h3><a href="/salto">El Salto</a> en La Ciénega de González</h3>
-            <div class="grid">
-                <div>
-                    <h4>Por Zona</h4>
-                    {% for fav in epc_fav %}
-                
-                    <td>{{fav}}</td>
-                
-                {% endfor %}
-                </div>
-                <div>
-                    <h4>Por Grado</h4>
-                    {% for grad in epc_grados %}
-                
-                    <td>{{grad}}</td>
-                
-                {% endfor %}
-                </div>
-                
             </div>
         </div>
         </main>

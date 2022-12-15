@@ -12,7 +12,7 @@ index_blueprint = Blueprint('index',__name__, template_folder='templates', stati
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('base.html')
 
 @app.route("/dash/")
 def my_dash_app():
