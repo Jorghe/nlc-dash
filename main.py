@@ -16,7 +16,7 @@ routes = {
     'epc': 'https://nl-climbing.deta.dev/api/epc/'
 }
 
-@server.route("/dash/")
+@app.route("/dash/")
 def my_dash_app():
     # req_huaste = requests.get(routes['huaste'])
     # api_huaste = pd.read_json(req_huaste.json())
