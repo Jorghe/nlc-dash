@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import os
 from dash import Dash, html, dcc
 from dash.dependencies import Input, Output
@@ -15,6 +15,9 @@ routes = {
     'salto': 'https://nl-climbing.deta.dev/api/salto/',
     'epc': 'https://nl-climbing.deta.dev/api/epc/'
 }
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route("/dash/")
 def my_dash_app():
