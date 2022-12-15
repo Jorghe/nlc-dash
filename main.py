@@ -6,8 +6,8 @@ import plotly.express as px
 import pandas as pd
 import requests
 
-
-app = Dash(__name__)
+server = Flask(__name__)
+app = Dash(__name__, server=server, url_base_pathname='/dash')
 
 stylesheets = ['https://nl-climbing.deta.dev/static/style.css']
 routes = {
@@ -30,13 +30,14 @@ app.layout = html.Div(children=[
 
 ])
 
-""" @app.route('/')
-def index():
-    req_huaste = requests.get(routes['huaste'])
-    api_huaste = pd.read_json(req_huaste.json())
-    js = api_huaste.to_json()
-    return "<p>You are in Index</p>" """
+@server.route("/dash")
+def my_dash_app():
+    # req_huaste = requests.get(routes['huaste'])
+    # api_huaste = pd.read_json(req_huaste.json())
+    # js = api_huaste.to_json()
 
+    return app.index()
+    
 @app.callback(
     Output('graph-huaste', 'figure'),
     Input('search-bar', 'value')
