@@ -1,14 +1,13 @@
 from flask import Flask, jsonify
 import os
-import dash
-from dash import html, dcc
+from dash import Dash, html, dcc
 from dash.dependencies import Input, Output
 import plotly.express as px
 import pandas as pd
 import requests
 
 
-app = dash.Dash#Flask(__name__)
+app = Dash(__name__)
 
 stylesheets = ['https://nl-climbing.deta.dev/static/style.css']
 routes = {
@@ -22,7 +21,7 @@ app.layout = html.Div(children=[
         html.H1('Dash para nlC')
     ]),
     html.Main(children=[
-        dcc.Graph(id='graph_huaste')
+        dcc.Graph(id='graph-huaste')
     ])
     
 
@@ -35,7 +34,7 @@ def index():
     return api_huaste.to_json() """
 
 @app.callback(
-    Output('graph_huaste', 'figure')
+    Output('graph-huaste', 'figure')
 )
 def actualizar_grafica():
     huaste= from_api('huaste')
