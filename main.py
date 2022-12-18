@@ -15,8 +15,7 @@ def index():
     try:
         return render_template('index.html')
     except:
-        print('An exception occurred')
-
+        return jsonify({404: "Error in rendering template"})
 @app.route("/dash/")
 def my_dash_app():
     # req_huaste = requests.get(routes['huaste'])
