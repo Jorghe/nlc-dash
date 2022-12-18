@@ -5,14 +5,17 @@ from dash.dependencies import Input, Output
 import plotly.express as px
 import pandas as pd
 import requests
-
+from jinja2 import TemplatesNotFound
 # Initialize app and Blueprint to load templates and static folder
 app = Flask(__name__)
-index_blueprint = Blueprint('base',__name__, template_folder='templates', static_folder='static')
+index_blueprint = Blueprint('index',__name__, template_folder='templates', static_folder='static')
 
 @app.route('/')
 def index():
-    return render_template('base.html')
+    try:
+        return render_template('index.html')
+    except:
+        print('An exception occurred')
 
 @app.route("/dash/")
 def my_dash_app():
