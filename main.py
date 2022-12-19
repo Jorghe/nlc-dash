@@ -7,8 +7,8 @@ import pandas as pd
 import requests
 from jinja2 import TemplatesNotFound
 # Initialize app and Blueprint to load templates and static folder
-app = Flask(__name__)
-index_blueprint = Blueprint('index',__name__, template_folder='templates', static_folder='static')
+# app = Flask(__name__)
+app = Blueprint('index',__name__, template_folder='templates', static_folder='static')
 
 @app.route('/')
 def index():
@@ -16,6 +16,7 @@ def index():
         return render_template('index.html')
     except:
         return jsonify({404: "Error in rendering template"})
+
 @app.route("/dash/")
 def my_dash_app():
     # req_huaste = requests.get(routes['huaste'])
