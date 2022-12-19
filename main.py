@@ -14,8 +14,10 @@ app = Flask(__name__)
 def index():
     try:
         return render_template('index.html')
-    except:
+    except TemplatesNotFound:
         return jsonify({404: "Error in rendering template"})
+    except:
+        return jsonify({404: "Unknown error"})
 
 @app.route("/dash/")
 def my_dash_app():
