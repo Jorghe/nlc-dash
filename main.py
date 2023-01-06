@@ -6,9 +6,8 @@ import plotly.express as px
 import pandas as pd
 import requests
 from jinja2 import TemplatesNotFound, Template
-# Initialize app and Blueprint to load templates and static folder
+# Initialize app and load templates and static folder
 app = Flask(__name__, template_folder="templates")
-# app = Blueprint('index',__name__, template_folder='templates', static_folder='static')
 
 @app.route('/')
 def index():
@@ -39,4 +38,4 @@ def from_api(name:str):
     return zona
 
 if __name__ == '__main__':
-    app.run(debug=True)#, port=os.getenv("PORT", default=5000))
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
