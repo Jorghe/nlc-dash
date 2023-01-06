@@ -1,5 +1,4 @@
-from flask import Flask, Blueprint, jsonify, render_template
-
+from flask import Flask, jsonify, render_template
 import os
 from dash import Dash, html, dcc
 from dash.dependencies import Input, Output
