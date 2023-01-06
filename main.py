@@ -1,19 +1,21 @@
 from flask import Flask, Blueprint, jsonify, render_template
+
 import os
 from dash import Dash, html, dcc
 from dash.dependencies import Input, Output
 import plotly.express as px
 import pandas as pd
 import requests
-from jinja2 import TemplatesNotFound
+from jinja2 import TemplatesNotFound, Template
 # Initialize app and Blueprint to load templates and static folder
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates")
 # app = Blueprint('index',__name__, template_folder='templates', static_folder='static')
 
 @app.route('/')
 def index():
     try:
         return render_template('index.html')
+        # return Template()
     except TemplatesNotFound:
         return jsonify({404: "Error in rendering template"})
     except:
@@ -38,4 +40,4 @@ def from_api(name:str):
     return zona
 
 if __name__ == '__main__':
-    app.run(debug=True, port=os.getenv("PORT", default=5000))
+    app.run(debug=True)#, port=os.getenv("PORT", default=5000))
