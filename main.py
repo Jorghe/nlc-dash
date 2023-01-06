@@ -7,12 +7,13 @@ import pandas as pd
 import requests
 from jinja2 import TemplatesNotFound, Template
 # Initialize app and load templates and static folder
-app = Flask(__name__, template_folder="templates")
+app = Flask(__name__)
 
 @app.route('/')
 def index():
     try:
-        return render_template('base.html')
+        #print(app.instance_path)
+        return render_template('index.html')
         # return Template()
     except TemplatesNotFound:
         return jsonify({404: "Error in rendering template"})
