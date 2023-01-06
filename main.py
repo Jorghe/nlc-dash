@@ -14,7 +14,7 @@ app = Flask(__name__, template_folder="templates")
 @app.route('/')
 def index():
     try:
-        return render_template('index.html')
+        return render_template('base.html')
         # return Template()
     except TemplatesNotFound:
         return jsonify({404: "Error in rendering template"})
